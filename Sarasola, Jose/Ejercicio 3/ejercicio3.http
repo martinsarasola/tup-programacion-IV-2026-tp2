@@ -81,6 +81,16 @@ Content-Type: application/json
   "notas": [7, 11, 8]
 }
 
+### Rechazar nota con más de dos decimales
+POST {{baseUrl}}/calificaciones
+Content-Type: application/json
+
+{
+  "alumno": "Bruno Diaz",
+  "materiaId": {{crearProgramacion.response.body.$.id}},
+  "notas": [7, 8.123, 9]
+}
+
 ### Modificar calificación y materia
 PUT {{baseUrl}}/calificaciones/{{crearCalificacion.response.body.$.id}}
 Content-Type: application/json

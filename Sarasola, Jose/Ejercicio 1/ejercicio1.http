@@ -76,6 +76,15 @@ Content-Type: application/json
   "lado2": 3
 }
 
+### Rechazar lado con más de dos decimales
+POST {{baseUrl}}/rectangulos
+Content-Type: application/json
+
+{
+  "lado1": 1.234,
+  "lado2": 2
+}
+
 ### Rechazar filtro inválido
 GET {{baseUrl}}/rectangulos?cuadrado=quizas
 

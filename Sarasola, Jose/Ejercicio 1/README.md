@@ -17,7 +17,7 @@ El cliente solamente puede enviar `lado1` y `lado2`. Los campos adicionales se r
 
 ## Validaciones
 
-Se utiliza `express-validator` para validar lados, `id` y el query `cuadrado`. Los lados deben estar presentes, ser números JSON reales, finitos y mayores que cero. También se rechazan campos de body y query no implementados.
+Se utiliza `express-validator` para validar lados, `id` y el query `cuadrado`. Los lados deben estar presentes, ser números JSON reales, finitos y mayores que cero. Se admiten como máximo dos cifras decimales, de acuerdo con la precisión `DECIMAL(10,2)` utilizada en la base de datos. También se rechazan campos de body y query no implementados.
 
 ## Códigos HTTP
 

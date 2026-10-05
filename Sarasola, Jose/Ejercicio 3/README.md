@@ -19,6 +19,8 @@ Los nombres se comparan quitando espacios externos, reduciendo espacios internos
 
 Se define y documenta la escala `0 a 10`, inclusive. Deben informarse exactamente tres notas y cada una debe ser un número JSON real dentro de ese rango.
 
+Se admiten números enteros o decimales con un máximo de dos cifras decimales, de acuerdo con la precisión `DECIMAL(4,2)` utilizada en la base de datos.
+
 ## Recursos y endpoints
 
 ### Materias

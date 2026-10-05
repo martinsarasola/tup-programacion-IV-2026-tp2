@@ -55,17 +55,43 @@ const validarId = [
 
 const validarRectangulo = [
   body("lado1")
-    .exists({ checkNull: true })
-    .withMessage("lado1 es obligatorio.")
-    .bail()
-    .custom((valor) => typeof valor === "number" && Number.isFinite(valor) && valor > 0)
-    .withMessage("lado1 debe ser un número mayor que cero."),
+  .exists({ checkNull: true })
+  .withMessage("lado1 es obligatorio.")
+  .bail()
+
+  .custom((valor) => typeof valor === "number")
+  .withMessage("lado1 debe ser un número.")
+  .bail()
+
+  .custom((valor) => Number.isFinite(valor))
+  .withMessage("lado1 debe ser un número finito.")
+  .bail()
+
+  .custom((valor) => valor > 0)
+  .withMessage("lado1 debe ser mayor que cero.")
+  .bail()
+
+  .custom((valor) => /^\d+(\.\d{1,2})?$/.test(String(valor)))
+  .withMessage("lado1 puede tener como máximo dos decimales."),
   body("lado2")
-    .exists({ checkNull: true })
-    .withMessage("lado2 es obligatorio.")
-    .bail()
-    .custom((valor) => typeof valor === "number" && Number.isFinite(valor) && valor > 0)
-    .withMessage("lado2 debe ser un número mayor que cero."),
+  .exists({ checkNull: true })
+  .withMessage("lado2 es obligatorio.")
+  .bail()
+
+  .custom((valor) => typeof valor === "number")
+  .withMessage("lado2 debe ser un número.")
+  .bail()
+
+  .custom((valor) => Number.isFinite(valor))
+  .withMessage("lado2 debe ser un número finito.")
+  .bail()
+
+  .custom((valor) => valor > 0)
+  .withMessage("lado2 debe ser mayor que cero.")
+  .bail()
+
+  .custom((valor) => /^\d+(\.\d{1,2})?$/.test(String(valor)))
+  .withMessage("lado2 puede tener como máximo dos decimales."),
   responderErroresValidacion,
 ];
 

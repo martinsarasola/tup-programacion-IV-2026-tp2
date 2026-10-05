@@ -98,14 +98,17 @@ const validarCalificacion = [
     .isArray({ min: 3, max: 3 })
     .withMessage("Deben informarse exactamente tres notas."),
   body("notas.*")
-    .custom(
-      (valor) =>
-        typeof valor === "number" &&
-        Number.isFinite(valor) &&
-        valor >= 0 &&
-        valor <= 10
-    )
-    .withMessage("Cada nota debe ser un número entre 0 y 10."),
+  .custom(
+    (valor) =>
+      typeof valor === "number" &&
+      Number.isFinite(valor) &&
+      valor >= 0 &&
+      valor <= 10
+  )
+  .withMessage("Cada nota debe ser un número entre 0 y 10.")
+  .bail()
+  .custom((valor) => /^\d+(\.\d{1,2})?$/.test(String(valor)))
+  .withMessage("Cada nota puede tener como máximo dos decimales."),
   responderErroresValidacion,
 ];
 
