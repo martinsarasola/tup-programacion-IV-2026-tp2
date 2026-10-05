@@ -85,6 +85,25 @@ Content-Type: application/json
   "lado2": 2
 }
 
+### Rechazar lado que excede la capacidad de DECIMAL(10,2)
+POST {{baseUrl}}/rectangulos
+Content-Type: application/json
+
+{
+  "lado1": 100000000,
+  "lado2": 2
+}
+
+
+### Aceptar valor máximo permitido
+POST {{baseUrl}}/rectangulos
+Content-Type: application/json
+
+{
+  "lado1": 99999999.99,
+  "lado2": 2
+}
+
 ### Rechazar filtro inválido
 GET {{baseUrl}}/rectangulos?cuadrado=quizas
 
